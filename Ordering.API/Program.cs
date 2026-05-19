@@ -105,6 +105,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+await ApplyDatabaseMigrationsAsync(app.Services);
+
 app.UseCors("AllowSwagger");
 
 // --- ПАЙПЛАЙН (Порядок важен!) ---
@@ -127,3 +130,24 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+static async Task ApplyDatabaseMigrationsAsync(IServiceProvider services)
+{
+    const int maxRetries = 10;
+
+    for (var attempt = 1; attempt <= maxRetries; attempt++)
+    {
+        try
+        {
+            using var scope = services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<OrderingDbContext>();
+            await dbContext.Database.MigrateAsync();
+            return;
+        }
+        catch (Exception ex) when (attempt < maxRetries)
+        {
+            Console.WriteLine($"Database migration failed on attempt {attempt}/{maxRetries}: {ex.Message}");
+            await Task.Delay(TimeSpan.FromSeconds(3));
+        }
+    }
+}
