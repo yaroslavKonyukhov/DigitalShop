@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DigitalShop - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-900 pb-20">
+    <header class="bg-slate-900 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-widest">ADMIN CONSOLE</h1>
+            <div class="flex gap-4">
+                <a href="/shop.html" class="text-sm bg-slate-700 px-4 py-2 rounded hover:bg-slate-600 transition">Back to Store</a>
+                <button onclick="logout()" class="text-sm text-red-400 font-bold hover:underline">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+        <div class="lg:col-span-2 space-y-10">
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+                <h2 id="form-title" class="text-2xl font-bold mb-6 text-gray-800">Create New Product</h2>
+                <form id="product-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="hidden" id="edit-product-id">
+                    <input type="text" id="p-name" placeholder="Product Name" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    <input type="number" id="p-price" placeholder="Price" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    <input type="number" id="p-stock" placeholder="Stock Quantity" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    <select id="p-category" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500" required>
+                        <option value="">Select Category</option>
+                    </select>
+                    <textarea id="p-desc" placeholder="Description" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 md:col-span-2" required></textarea>
+                    <div class="md:col-span-2 flex gap-2">
+                        <button type="submit" id="submit-btn" class="flex-1 bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">Add Product</button>
+                        <button type="button" id="cancel-edit" class="hidden flex-1 bg-gray-200 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-300 transition">Cancel</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-gray-50 border-b border-gray-100">
+                        <tr>
+                            <th class="p-4 text-xs font-bold text-gray-400 uppercase">Product</th>
+                            <th class="p-4 text-xs font-bold text-gray-400 uppercase">Price</th>
+                            <th class="p-4 text-xs font-bold text-gray-400 uppercase">Stock</th>
+                            <th class="p-4 text-xs font-bold text-gray-400 uppercase text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-product-list"></tbody>
+                </table>
+            </section>
+
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-3 mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">User Management</h2>
+                </div>
+                <div class="overflow-hidden rounded-xl border border-gray-100">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                                <th class="p-4">Email</th>
+                                <th class="p-4">Role</th>
+                                <th class="p-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body" class="divide-y divide-gray-50">
+                            <tr><td colspan="3" class="p-10 text-center text-gray-400">Loading users...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <div class="space-y-10">
+            <section class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+                <h2 class="text-xl font-bold mb-6 text-gray-800">Categories</h2>
+                <form id="category-form" class="flex flex-col gap-3">
+                    <input type="text" id="cat-name" placeholder="New Category Name" class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-emerald-500" required>
+                    <button type="submit" class="bg-emerald-600 text-white font-bold py-2 rounded-lg hover:bg-emerald-700 transition">Create Category</button>
+                </form>
+                <div id="admin-category-list" class="mt-6 space-y-2"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

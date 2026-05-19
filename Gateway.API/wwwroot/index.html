@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalShop - Auth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 h-screen flex items-center justify-center font-sans">
+    <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-md">
+        <h1 id="form-title" class="text-3xl font-extrabold mb-8 text-center text-indigo-600">Sign In</h1>
+
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="login-email" class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="name@example.com" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="login-password" class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition duration-200">Login</button>
+        </form>
+
+        <form id="register-form" class="space-y-6 hidden">
+            <div class="flex gap-4">
+                <div class="w-1/2">
+                    <label class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input type="text" id="reg-firstname" class="mt-1 w-full p-3 border border-gray-300 rounded-lg" placeholder="John" required>
+                </div>
+                <div class="w-1/2">
+                    <label class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input type="text" id="reg-lastname" class="mt-1 w-full p-3 border border-gray-300 rounded-lg" placeholder="Doe" required>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="reg-email" class="mt-1 w-full p-3 border border-gray-300 rounded-lg" placeholder="email@example.com" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="reg-password" class="mt-1 w-full p-3 border border-gray-300 rounded-lg" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="w-full bg-emerald-600 text-white py-3 rounded-lg font-bold hover:bg-emerald-700 transition duration-200">Create Account</button>
+        </form>
+
+        <div class="mt-8 text-center">
+            <button id="toggle-form" class="text-sm font-semibold text-indigo-500 hover:text-indigo-800 transition">
+                Don't have an account? Sign Up
+            </button>
+        </div>
+
+        <div id="message" class="mt-6 p-4 rounded-lg text-sm text-center hidden font-medium"></div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

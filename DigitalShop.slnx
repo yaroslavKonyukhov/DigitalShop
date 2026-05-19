@@ -1,0 +1,28 @@
+<Solution>
+  <Folder Name="/CatalogService/">
+    <Project Path="Catalog.API/Catalog.API.csproj" Id="cf81dec9-91fb-4dfb-ba5a-7bd679ddc7d7" />
+    <Project Path="Catalog.Application/Catalog.Application.csproj" Id="d7b381f4-16e8-40df-9a27-2402910e4ae5" />
+    <Project Path="Catalog.Domain/Catalog.Domain.csproj" Id="dd7e3911-b53a-4ed9-82a2-75c1da3e2803" />
+    <Project Path="Catalog.Infrastructure/Catalog.Infrastructure.csproj" Id="7c8ac7ea-d3a4-4a8d-a19e-734647805756" />
+  </Folder>
+  <Folder Name="/Gateway/">
+    <Project Path="Gateway.API/Gateway.API.csproj" />
+  </Folder>
+  <Folder Name="/IdentityService/">
+    <Project Path="Identity.API/Identity.API.csproj" />
+    <Project Path="Identity.Application/Identity.Application.csproj" />
+    <Project Path="Identity.Domain/Identity.Domain.csproj" />
+    <Project Path="Identity.Infrastructure/Identity.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/OrderingService/">
+    <Project Path="Ordering.API/Ordering.API.csproj" Id="f05c5a04-ea68-4cc6-82e5-9ae1059517b2" />
+    <Project Path="Ordering.Application/Ordering.Application.csproj" Id="bdeb9008-3801-4005-ad83-e120cf2e6862" />
+    <Project Path="Ordering.Domain/Ordering.Domain.csproj" Id="850cc6f0-00a0-4615-9928-272e48d59e42" />
+    <Project Path="Ordering.Infrastructure/Ordering.Infrastructure.csproj" Id="97fb05dc-93d5-4b2e-a21a-e1280194d33d" />
+  </Folder>
+  <Folder Name="/Элементы решения/">
+    <File Path="docker-compose.yml" />
+  </Folder>
+  <Project Path="EventBus.Messages/EventBus.Messages.csproj" Id="5af09948-284b-48f4-9132-148a40b4c607" />
+  <Project Path="Ordering.UnitTests/Ordering.UnitTests.csproj" Id="7f44df77-dae0-42b8-bf74-9e4b48968802" />
+</Solution>
